@@ -8,10 +8,8 @@ import java.util.List;
 
 public class Address implements Comparable<Address>, Serializable {
 
-    String first_name, last_name, phone_number;
-    //int phone_number;
+    String first_name, last_name, phone_number, address;
     boolean editStatus;
-    boolean fName = false, lName = false, phoneNumber = false;
 
     public String getFirst_name() {
         return first_name;
@@ -31,46 +29,32 @@ public class Address implements Comparable<Address>, Serializable {
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
-    public boolean getEditStatus(){
-        return editStatus;
+    public String getAddress() {
+        return address;
     }
-    public void setEditStatus(boolean b){
-        this.editStatus = b;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String toString(){
         String s = "First name: " + first_name + ", ";
         s += "Last name: " + last_name + ", ";
-        s += "\nPhone number: " + phone_number + ",";
+        s += "\nPhone number: " + phone_number;
+        s += "\nAddress: " + address;
         return s;
     }
 
-    public boolean equals(Object obj){
-        if(obj instanceof Address){
-            Address otherAddress = (Address) obj;
-            if(this.getFirst_name().equalsIgnoreCase(otherAddress.getFirst_name())){
-                fName = true;
-            }
-            if (this.getLast_name().equalsIgnoreCase(otherAddress.getLast_name())){
-                lName = true;
-            }
-            if(this.getPhone_number() == otherAddress.getPhone_number()){
-                phoneNumber = true;
-            }
-        }
-        return fName || lName || phoneNumber;
-    }
-
-    public boolean equal(Object obj) {
+    public boolean equals(Object obj) {
         if (obj instanceof Address) {
             Address otherAddress = (Address) obj;
-            if (this.getLast_name().equalsIgnoreCase(otherAddress.getLast_name()) &&
-                    this.getFirst_name().equalsIgnoreCase(otherAddress.getFirst_name()) &&
-                    this.getPhone_number() == otherAddress.getPhone_number()) {
+            if (this.getFirst_name().equalsIgnoreCase(otherAddress.getFirst_name()) &&
+                    this.getLast_name().equalsIgnoreCase(otherAddress.getLast_name()) &&
+                    this.getPhone_number().equalsIgnoreCase(otherAddress.getPhone_number()) &&
+                    this.getAddress().equalsIgnoreCase(otherAddress.getAddress())) {
                 return true;
             }
         }
-            return false;
+        return false;
     }
 
     public int compareTo(Address a){
@@ -81,7 +65,13 @@ public class Address implements Comparable<Address>, Serializable {
         this.first_name = first_name;
         this.last_name = last_name;
         this.phone_number = phone_number;
-        editStatus = false;
+        this.address = "blank";
+    }
+    Address(String first_name, String last_name, String phone_number, String address){
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.phone_number = phone_number;
+        this.address = address;
     }
 
 }

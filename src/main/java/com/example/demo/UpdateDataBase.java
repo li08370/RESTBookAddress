@@ -19,6 +19,7 @@ public class UpdateDataBase {
             preparedStatement.setString(1, address.getFirst_name());
             preparedStatement.setString(2, address.getLast_name());
             preparedStatement.setString(3, address.getPhone_number());
+            preparedStatement.setString(4, address.getAddress());
             preparedStatement.executeUpdate();
             response = "ok";
         } catch (ClassNotFoundException | SQLException e) {
@@ -76,7 +77,8 @@ public class UpdateDataBase {
         Address tempA = new Address(
                 results.getString("firstName"),
                 results.getString("firstName"),
-                results.getString("phonenumber"));
+                results.getString("phonenumber"),
+                results.getString("address"));
               //  results.getString("address"));
         return tempA;
     }

@@ -8,8 +8,8 @@ public class GetAddressFromJSON {
         return new Address(
                 obj.getString("first_name"),
                 obj.getString("last_name"),
-                obj.getString("phone_number")
-        );
+                obj.getString("phone_number"),
+                obj.getString("address"));
 
     }
 }

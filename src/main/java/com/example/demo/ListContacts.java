@@ -35,7 +35,7 @@ public class ListContacts {
             jsonContact.put("firstname", address.getFirst_name());
             jsonContact.put("lastname", address.getLast_name());
             jsonContact.put("phonenumber", address.getPhone_number());
-            //jsonContact.put("address", address.getAddreess);
+            jsonContact.put("address", address.getAddress());
             jsonContactArray.put(jsonContact);
             jsonContact = null;
         }
