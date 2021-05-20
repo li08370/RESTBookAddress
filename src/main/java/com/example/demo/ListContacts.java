@@ -28,10 +28,9 @@ public class ListContacts {
     }
 
     //Turns the ArrayList of contacts into the JSON format mentioned above.
-    private JSONObject jsonInfoOfContacts(ArrayList<Address> contactList) {
-        for (Address address: contactList) {
+    private JSONObject jsonInfoOfContacts(ArrayList<Address> AddressList) {
+        for (Address address: AddressList) {
             jsonContact = new JSONObject();
-
             jsonContact.put("firstname", address.getFirst_name());
             jsonContact.put("lastname", address.getLast_name());
             jsonContact.put("phonenumber", address.getPhone_number());
